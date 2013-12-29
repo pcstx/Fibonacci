@@ -11,12 +11,16 @@ namespace Fibonacci
     {
         static void Main(string[] args)
         {
+              int f =0;
             while (true)
             {
                 Console.WriteLine("输入要计算的位数:");
                 string flag = Console.ReadLine();
-                int f = Convert.ToInt32(flag);
-
+                if (!int.TryParse(flag,out f))
+                {
+                    Console.WriteLine("必须输入纯数字");
+                    continue;
+                }
                 Stopwatch stopwatch = new Stopwatch();
                 stopwatch.Start();
                 double result = Fibonacci2(f);
